@@ -687,3 +687,45 @@ footer::before {
     min-width: unset !important;
   }
 }
+
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .about h2 {
+    font-size: 2.25rem;
+  }
+
+  .about p {
+    font-size: 1.1rem;
+  }
+
+  .stores h2 {
+    font-size: 2.25rem;
+  }
+
+  .store-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .store-card p {
+    font-size: 1rem;
+  }
+
+  .instagram-feed h2 {
+    font-size: 2.25rem;
+  }
+
+  .footer-logo span {
+    font-size: 1.5rem;
+  }
+
+  .footer-links a {
+    font-size: 1rem;
+  }
+}
