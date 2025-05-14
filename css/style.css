@@ -19,9 +19,9 @@
 
   /* Colors */
   --sunny-yellow: #ffd700;
-  --gift-red: #ff4b4b;
-  --primary-blue: #4a90e2;
-  --secondary-blue: #357abd;
+  --gift-red: #e2040d;
+  --primary-blue: #244fae;
+  --secondary-blue: #244fae;
   --dark-charcoal: #1a1a1a;
   --light-gray: #f8f9fa;
   --text-primary: #1a1a1a;
@@ -122,10 +122,15 @@ h3 {
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.75rem;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   text-shadow: var(--shadow-sm);
+}
+
+.logo .my {
+  color: var(--gift-red);
+}
+
+.logo .kado {
+  color: var(--primary-blue);
 }
 
 nav ul {
