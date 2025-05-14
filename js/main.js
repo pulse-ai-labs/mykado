@@ -59,25 +59,22 @@ const navLinks = document.querySelectorAll("nav a");
 
 mobileMenuBtn.addEventListener("click", () => {
   nav.classList.add("active");
-  closeMenuBtn.classList.add("active");
   mobileMenuBtn.classList.add("hidden");
-  document.body.style.overflow = "hidden"; // Empêche le défilement quand le menu est ouvert
+  closeMenuBtn.classList.add("active");
 });
 
 closeMenuBtn.addEventListener("click", () => {
   nav.classList.remove("active");
-  closeMenuBtn.classList.remove("active");
   mobileMenuBtn.classList.remove("hidden");
-  document.body.style.overflow = ""; // Réactive le défilement
+  closeMenuBtn.classList.remove("active");
 });
 
 // Fermer le menu mobile lors du clic sur un lien
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     nav.classList.remove("active");
-    closeMenuBtn.classList.remove("active");
     mobileMenuBtn.classList.remove("hidden");
-    document.body.style.overflow = "";
+    closeMenuBtn.classList.remove("active");
   });
 });
 
@@ -89,9 +86,8 @@ document.addEventListener("click", (e) => {
     !mobileMenuBtn.contains(e.target)
   ) {
     nav.classList.remove("active");
-    closeMenuBtn.classList.remove("active");
     mobileMenuBtn.classList.remove("hidden");
-    document.body.style.overflow = "";
+    closeMenuBtn.classList.remove("active");
   }
 });
 
@@ -113,4 +109,84 @@ const observer = new IntersectionObserver((entries) => {
 // Observer les sections
 document.querySelectorAll("section").forEach((section) => {
   observer.observe(section);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Mobile menu handling
+  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+  const closeMenuBtn = document.querySelector(".close-menu-btn");
+  const nav = document.querySelector("nav");
+
+  mobileMenuBtn.addEventListener("click", () => {
+    nav.classList.add("active");
+    mobileMenuBtn.classList.add("hidden");
+    closeMenuBtn.classList.add("active");
+  });
+
+  closeMenuBtn.addEventListener("click", () => {
+    nav.classList.remove("active");
+    mobileMenuBtn.classList.remove("hidden");
+    closeMenuBtn.classList.remove("active");
+  });
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+        // Close mobile menu if open
+        nav.classList.remove("active");
+        mobileMenuBtn.classList.remove("hidden");
+        closeMenuBtn.classList.remove("active");
+      }
+    });
+  });
+
+  // Active navigation state
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll("nav a");
+
+  function setActiveLink() {
+    const scrollPosition = window.scrollY;
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute("id");
+
+      if (
+        scrollPosition >= sectionTop &&
+        scrollPosition < sectionTop + sectionHeight
+      ) {
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${sectionId}`) {
+            link.classList.add("active");
+          }
+        });
+      }
+    });
+  }
+
+  window.addEventListener("scroll", setActiveLink);
+  setActiveLink(); // Set initial active state
+
+  // Newsletter form handling
+  const newsletterForm = document.querySelector(".newsletter-form");
+  if (newsletterForm) {
+    newsletterForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = newsletterForm.querySelector('input[type="email"]').value;
+      // Here you would typically send this to your backend
+      console.log("Newsletter signup:", email);
+      // Show success message
+      alert("Merci de votre inscription !");
+      newsletterForm.reset();
+    });
+  }
 });
