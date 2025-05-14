@@ -20,8 +20,8 @@
   /* Colors */
   --sunny-yellow: #ffd700;
   --gift-red: #ff4b4b;
-  --royal-blue: #2d5bff;
-  --sky-blue: #6d8cf6;
+  --primary-blue: #4a90e2;
+  --secondary-blue: #357abd;
   --dark-charcoal: #1a1a1a;
   --light-gray: #f8f9fa;
   --text-primary: #1a1a1a;
@@ -36,8 +36,8 @@
   /* Gradients */
   --gradient-primary: linear-gradient(
     135deg,
-    var(--royal-blue),
-    var(--sky-blue)
+    var(--primary-blue),
+    var(--secondary-blue)
   );
   --gradient-secondary: linear-gradient(135deg, #fff176, #ffeb3b);
 }
@@ -144,7 +144,7 @@ nav a {
 }
 
 nav a.active {
-  color: var(--royal-blue);
+  color: var(--primary-blue);
 }
 
 nav a.active::after {
@@ -399,7 +399,7 @@ nav a.active::after {
 }
 
 .store-card h3 {
-  color: var(--royal-blue);
+  color: var(--primary-blue);
   margin-bottom: 1.25rem;
   font-size: 1.75rem;
 }
@@ -411,7 +411,7 @@ nav a.active::after {
 
 .store-card p i {
   margin-right: var(--space-xs);
-  color: var(--royal-blue);
+  color: var(--primary-blue);
 }
 
 .btn-call {
