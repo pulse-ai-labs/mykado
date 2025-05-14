@@ -106,9 +106,12 @@ h3 {
 }
 
 .logo img {
+  width: 48px;
   height: 48px;
+  min-width: 48px;
   transition: var(--transition);
   filter: drop-shadow(var(--shadow-sm));
+  object-fit: contain;
 }
 
 .logo span {
