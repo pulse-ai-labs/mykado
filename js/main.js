@@ -190,3 +190,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// Cookie Consent
+document.addEventListener("DOMContentLoaded", function () {
+  const cookieConsent = document.getElementById("cookie-consent");
+  const acceptButton = document.getElementById("accept-cookies");
+  const declineButton = document.getElementById("decline-cookies");
+
+  // Check if user has already made a choice
+  const cookieChoice = localStorage.getItem("cookieConsent");
+
+  if (!cookieChoice) {
+    // Show the cookie consent popup if no choice has been made
+    cookieConsent.style.display = "block";
+  }
+
+  // Handle accept button click
+  acceptButton.addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "accepted");
+    cookieConsent.style.display = "none";
+    // Here you can add code to enable cookies or analytics
+  });
+
+  // Handle decline button click
+  declineButton.addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "declined");
+    cookieConsent.style.display = "none";
+    // Here you can add code to disable cookies or analytics
+  });
+});
