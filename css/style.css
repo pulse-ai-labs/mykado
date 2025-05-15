@@ -118,6 +118,17 @@ h3 {
   object-fit: contain;
 }
 
+.logo .logo-text {
+  width: 120px;
+  height: 32px;
+  min-width: 120px;
+  filter: drop-shadow(var(--shadow-sm));
+}
+
+.logo:hover .logo-text {
+  transform: translateY(-2px);
+}
+
 .logo span {
   font-family: "Marko One", serif;
   font-weight: 400;
@@ -365,24 +376,27 @@ nav a.active::after {
   margin-bottom: 2.5rem;
   font-size: 3rem;
   font-family: var(--font-heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: var(--shadow-sm);
 }
 
-.about h2 .brand-name {
-  font-family: "Marko One", serif;
-  background: var(--primary-blue);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.about h2 .about-logo-text {
+  height: 48px;
+  width: auto;
+  filter: drop-shadow(var(--shadow-sm));
+  vertical-align: middle;
 }
 
-.about h2 .my {
-  font-family: "Marko One", serif;
-  background: var(--gift-red);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Remove old styles that are no longer needed */
+.about h2 .my,
+.about h2 .brand-name {
+  display: none;
 }
 
 .about p {
@@ -565,6 +579,12 @@ footer::before {
   height: 36px;
   filter: brightness(0) invert(1);
   transition: var(--transition);
+}
+
+.footer-logo .footer-logo-text {
+  height: 32px;
+  width: auto;
+  filter: brightness(0) invert(1);
 }
 
 .footer-logo:hover img {
