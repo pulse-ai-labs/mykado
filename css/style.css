@@ -119,9 +119,9 @@ h3 {
 }
 
 .logo span {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.75rem;
+  font-family: "Marko One", serif;
+  font-weight: 400;
+  font-size: 2rem;
   text-shadow: var(--shadow-sm);
 }
 
@@ -253,17 +253,16 @@ nav a.active::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   background: white;
-  color: var(--dark-charcoal);
+  color: var(--text-primary);
   text-decoration: none;
-  font-size: 1.5rem;
   transition: var(--transition);
-  box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
 .social-btn::before {
@@ -276,18 +275,18 @@ nav a.active::after {
   background: var(--gradient-primary);
   opacity: 0;
   transition: var(--transition);
-  z-index: 0;
 }
 
 .social-btn i {
+  font-size: 1.5rem;
   position: relative;
   z-index: 1;
   transition: var(--transition);
 }
 
 .social-btn:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
 }
 
 .social-btn:hover::before {
@@ -296,6 +295,50 @@ nav a.active::after {
 
 .social-btn:hover i {
   color: white;
+}
+
+/* Social Media Brand Colors */
+.social-btn.instagram {
+  color: #e1306c;
+}
+
+.social-btn.facebook {
+  color: #1877f2;
+}
+
+.social-btn.whatsapp {
+  color: #25d366;
+}
+
+.social-btn.tiktok {
+  color: #000000;
+}
+
+.social-btn.tiktok:hover {
+  color: white;
+}
+
+.social-btn.instagram::before {
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+}
+
+.social-btn.facebook::before {
+  background: #1877f2;
+}
+
+.social-btn.whatsapp::before {
+  background: #25d366;
+}
+
+.social-btn.tiktok::before {
+  background: linear-gradient(45deg, #69c9d0, #ee1d52);
 }
 
 /* About Section */
@@ -321,10 +364,25 @@ nav a.active::after {
   text-align: center;
   margin-bottom: 2.5rem;
   font-size: 3rem;
+  font-family: var(--font-heading);
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: var(--shadow-sm);
+}
+
+.about h2 .brand-name {
+  font-family: "Marko One", serif;
+  background: var(--primary-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about h2 .my {
+  font-family: "Marko One", serif;
+  background: var(--gift-red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .about p {
